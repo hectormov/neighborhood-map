@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-class GoogleMaps extends React.Component {
+class GoogleMaps extends Component {
     state = {
         myMap: {},
         markers: []
     }
 
-    componentWillMount(){
+    componentWillMount() {
         let bodyEl = document.querySelector('body');
         let mapElement = document.createElement('div');
         mapElement.id = 'map';
@@ -24,9 +24,29 @@ class GoogleMaps extends React.Component {
             center: { lat: this.props.home.lat, lng: this.props.home.lng }, 
             zoom: 15
         });
-        this.setState({myMap: mapWindow});
-        //delete this below
-        console.log('INIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT')
+        this.setState({myMap: mapWindow}, ( () => {
+            //Initialize all markers
+            const locations = this.props.locations;
+            const theMap = this.state.myMap
+            const infoWindow = new window.google.maps.InfoWindow();
+            const bounds = new window.google.maps.LatLngBounds();
+            let markers = locations.map((loc, i) => {
+                const marker = new window.google.maps.Marker({
+                    map: theMap,
+                    position: loc.location,
+                    title: loc.name,
+                    animation: window.google.maps.Animation.DROP,
+                    id: loc.id
+                });
+                bounds.extend(marker.position);
+                marker.addListener('click', () => {
+                    this.populateInfoWindow(marker, infoWindow, theMap);
+                });
+                return marker
+            })
+            theMap.fitBounds(bounds);
+            this.setState({markers});
+        }));
     }
 
     populateInfoWindow = (marker, infoWindow, theMap) =>{
@@ -39,31 +59,49 @@ class GoogleMaps extends React.Component {
             });
         }
     };
+
+    //Removes or adds animation to a marker
+    // animation 1 = BOUNCE
+    isSelected = (marker) => {
+        // debugger
+        const selectedLoc = this.props.selectedLocation;
+        // if (selectedLoc !== '') {
+        //     if(marker.animating) {
+        //         return null
+        //     }
+            return marker.id === selectedLoc.id ? 1 : null
+        // } 
+        // return null
+    };
+
+    showHideMarker = (markers, filteredLocations) => {
+        // if (filteredLocations.findIndex(loc => loc.id === marker.id) !== -1) {
+        //     marker.setMap(this.state.myMap);
+        // } else {
+        //     marker.setMap(null);
+        // }
+        let newMarkers = markers.map(marker => {
+            if (filteredLocations.findIndex(loc => loc.id === marker.id) !== -1) {
+                return marker.setMap(this.state.myMap);
+            } else {
+                return marker.setMap(null);
+            }
+        })
+        
+    };
     
     render() {
-        const {locations} = this.props;
-        if(Object.keys(this.state.myMap).length > 0) {
-            const theMap = this.state.myMap
-            const infoWindow = new window.google.maps.InfoWindow();
-            const bounds = new window.google.maps.LatLngBounds();
-            let markers = locations.map((loc, i) => {
-                const marker = new window.google.maps.Marker({
-                    map: theMap,
-                    position: loc.location,
-                    title: loc.name,
-                    animation: window.google.maps.Animation.DROP,
-                    id: i
-                })
-                bounds.extend(marker.position);
-                marker.addListener('click', () => {
-                    this.populateInfoWindow(marker, infoWindow, theMap);
-                });
-                return marker
-            })
-            theMap.fitBounds(bounds);
-        }
+        const {filteredLocations} = this.props;
+        const markers = this.state.markers
         return (
-            null
+            <div>
+                {
+                    markers.map( marker => {
+                        return marker.setAnimation(this.isSelected(marker));
+                    })
+                }
+                
+            </div>
         );
     }
 }
