@@ -8,7 +8,11 @@ class Search extends Component {
         return (
             <div className='search-and-list'>
                 <div>
-                    <input type="text" placeholder='Restaurant Name' onChange={event => queryUpdate(event.target.value)}/>
+                    <input type="text" 
+                        className='search-box' 
+                        placeholder='Restaurant Name' 
+                        aria-label='Search Restaurant'
+                        onChange={event => queryUpdate(event.target.value)}/>
                 </div>
                 <ul>
                     {
@@ -18,8 +22,10 @@ class Search extends Component {
                                 <li 
                                     key={index} 
                                     onClick={ () => selectLocation(location)}
+                                    onKeyDown={(event) => event.keyCode !== 13 || selectLocation(location)}
                                     className={isSelected}
-                                    >
+                                    tabIndex={0}
+                                >
                                     <span>{location.name}</span>
                                 </li>
                             )

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import * as FoursquareAPI from './FoursquareAPI';
 
 class GoogleMaps extends Component {
     state = {
         myMap: {},
-        markers: []
+        markers: [],
+        infoWindow: {}
     }
 
     componentWillMount() {
@@ -19,88 +21,102 @@ class GoogleMaps extends Component {
         window.initMap = this.initMap;
     }
 
+    // Initializes the map, creates info window and creates and adds listeners to the markers
     initMap = () => {
         const mapWindow = new window.google.maps.Map(document.getElementById('map'), {
             center: { lat: this.props.home.lat, lng: this.props.home.lng }, 
-            zoom: 15
+            zoom: 10
         });
-        this.setState({myMap: mapWindow}, ( () => {
-            //Initialize all markers
-            const locations = this.props.locations;
-            const theMap = this.state.myMap
-            const infoWindow = new window.google.maps.InfoWindow();
-            const bounds = new window.google.maps.LatLngBounds();
-            let markers = locations.map((loc, i) => {
-                const marker = new window.google.maps.Marker({
-                    map: theMap,
-                    position: loc.location,
-                    title: loc.name,
-                    animation: window.google.maps.Animation.DROP,
-                    id: loc.id
-                });
-                bounds.extend(marker.position);
-                marker.addListener('click', () => {
-                    this.populateInfoWindow(marker, infoWindow, theMap);
-                });
-                return marker
-            })
-            theMap.fitBounds(bounds);
-            this.setState({markers});
-        }));
+
+        const infoWindow = new window.google.maps.InfoWindow({
+            maxWidth: 330
+        });
+        this.setState({infoWindow}, (() =>
+            this.setState({myMap: mapWindow}, ( () => {
+                //Initialize all markers
+                const locations = this.props.locations;
+                const theMap = this.state.myMap
+                const bounds = new window.google.maps.LatLngBounds();
+                let markers = locations.map((loc, i) => {
+                    const marker = new window.google.maps.Marker({
+                        map: theMap,
+                        position: loc.location,
+                        title: loc.name,
+                        animation: window.google.maps.Animation.DROP,
+                        id: loc.id
+                    });
+                    bounds.extend(marker.position);
+                    marker.addListener('click', () => {
+                        this.populateInfoWindow(marker, infoWindow, theMap);
+                    });
+                    return marker
+                })
+                theMap.fitBounds(bounds);
+                this.setState({markers});
+            }))
+        ))
     }
 
-    populateInfoWindow = (marker, infoWindow, theMap) =>{
-        if(infoWindow.marker !== marker){
-            infoWindow.marker = marker;
-            infoWindow.setContent('<div>' + marker.title + '</div>')
-            infoWindow.open(theMap, marker);
-            infoWindow.addListener('closeClick', () => {
-                infoWindow.setMarker(null);
-            });
-        }
-    };
-
     //Removes or adds animation to a marker
-    // animation 1 = BOUNCE
     isSelected = (marker) => {
-        // debugger
         const selectedLoc = this.props.selectedLocation;
-        // if (selectedLoc !== '') {
-        //     if(marker.animating) {
-        //         return null
-        //     }
-            return marker.id === selectedLoc.id ? 1 : null
-        // } 
-        // return null
+        const infoWindow = this.state.infoWindow;
+        if(marker.id === selectedLoc.id){
+            this.populateInfoWindow(marker, infoWindow, this.state.myMap);
+            setTimeout(() => { infoWindow.close(); }, 2000);
+            return window.google.maps.Animation.BOUNCE
+        }
+        return null
     };
 
-    showHideMarker = (markers, filteredLocations) => {
-        // if (filteredLocations.findIndex(loc => loc.id === marker.id) !== -1) {
-        //     marker.setMap(this.state.myMap);
-        // } else {
-        //     marker.setMap(null);
-        // }
-        let newMarkers = markers.map(marker => {
-            if (filteredLocations.findIndex(loc => loc.id === marker.id) !== -1) {
-                return marker.setMap(this.state.myMap);
-            } else {
-                return marker.setMap(null);
-            }
-        })
-        
+    //Make the API call to Foursquare and populates the info window with data
+    populateInfoWindow = (marker, infoWindow, theMap) =>{
+        infoWindow.setContent('Loading...');
+        FoursquareAPI.getVenueDetails(marker.id)
+            .then(venue => {
+                const vDetails = venue.response.venue
+                const infoContent = this.buildInfoWindowContent(vDetails);
+                infoWindow.setContent(infoContent);
+                infoWindow.open(theMap, marker);
+            })
+            .catch(err => {
+                infoWindow.setContent(`<div><span>There was an error loading this venue's info</span><p>Error: ${err}</p></div>`)
+                infoWindow.open(theMap, marker);
+            })
+    };
+
+    // Created the HTML to be used on the info content if it exists on the response
+    buildInfoWindowContent = (vDetails) => {
+        let content = '<div class="info-window">'
+        content += vDetails.name ? `<h3>${vDetails.name}</h3>` : '';
+        content += vDetails.categories[0].name ? `<h4>${vDetails.categories[0].name}</h4>` : '';
+        content += vDetails.description ? `<h5>${vDetails.description}</h5>` : '';
+        content += vDetails.bestPhoto.prefix && vDetails.bestPhoto.suffix ? `<img src="${vDetails.bestPhoto.prefix}300x200${vDetails.bestPhoto.suffix}" alt="Restaurant Image" class="info-window-pic">` : '';
+        content += '<p><ul>'
+        content += vDetails.contact.formattedPhone && vDetails.hours.status ? `<li>Phone: ${vDetails.contact.formattedPhone} ${vDetails.hours.status}</li>` : '';
+        content += vDetails.rating && vDetails.likes.summary ? `<li class="rating">Rating: ${vDetails.rating} with ${vDetails.likes.summary}</li>` : '';
+        content += vDetails.menu && vDetails.price.message ? `<li><a href="${vDetails.menu.url}">Menu</a> Price: ${vDetails.price.message}</li>` : '';
+        content += vDetails.canonicalUrl && vDetails.url ? `<li><a href="${vDetails.canonicalUrl}">Open on Foursquare</a>, <a href="${vDetails.url}>Home Page</a></li>` : '';
+        content += '</p></ul></div>'
+        return content;
     };
     
     render() {
         const {filteredLocations} = this.props;
         const markers = this.state.markers
+        let filteredMarkers = markers.filter(mk => {
+            mk.setMap(null);
+            return filteredLocations.some(loc => loc.id === mk.id)
+        })
+
         return (
             <div>
                 {
-                    markers.map( marker => {
-                        return marker.setAnimation(this.isSelected(marker));
+                    filteredMarkers.forEach( mk => {
+                        mk.setAnimation(this.isSelected(mk));
+                        mk.setMap(this.state.myMap);
                     })
                 }
-                
             </div>
         );
     }

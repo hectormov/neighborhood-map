@@ -1,0 +1,587 @@
+  //API Response example from Foursquare
+  
+  {const test = {
+        "meta": {
+            "code": 200,
+            "requestId": "5b3d9ee06a607176a43873c7"
+        },
+        "response": {
+            "venue": {
+                "id": "599d52765d891b017b6e035b",
+                "name": "Spicy Girl",
+                "contact": {
+                    "phone": "8326237990",
+                    "formattedPhone": "(832) 623-7990"
+                },
+                "location": {
+                    "address": "917 Winbern Street Unit B",
+                    "lat": 29.73890426222052,
+                    "lng": -95.38013989027247,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 29.73890426222052,
+                            "lng": -95.38013989027247
+                        }
+                    ],
+                    "postalCode": "77002",
+                    "cc": "US",
+                    "city": "Houston",
+                    "state": "TX",
+                    "country": "United States",
+                    "formattedAddress": [
+                        "917 Winbern Street Unit B",
+                        "Houston, TX 77002",
+                        "United States"
+                    ]
+                },
+                "canonicalUrl": "https://foursquare.com/v/spicy-girl/599d52765d891b017b6e035b",
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d145941735",
+                        "name": "Chinese Restaurant",
+                        "pluralName": "Chinese Restaurants",
+                        "shortName": "Chinese",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/asian_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    },
+                    {
+                        "id": "52af3b773cf9994f4e043c03",
+                        "name": "Szechuan Restaurant",
+                        "pluralName": "Szechuan Restaurants",
+                        "shortName": "Szechuan",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/asian_",
+                            "suffix": ".png"
+                        }
+                    }
+                ],
+                "verified": true,
+                "stats": {
+                    "tipCount": 5,
+                    "usersCount": 0,
+                    "checkinsCount": 0,
+                    "visitsCount": 0
+                },
+                "url": "http://spicygirltx.com",
+                "price": {
+                    "tier": 2,
+                    "message": "Moderate",
+                    "currency": "$"
+                },
+                "likes": {
+                    "count": 9,
+                    "groups": [
+                        {
+                            "type": "others",
+                            "count": 9,
+                            "items": [
+                                {
+                                    "id": "38374970",
+                                    "firstName": "Scott",
+                                    "lastName": "Fisher",
+                                    "gender": "male",
+                                    "photo": {
+                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                        "suffix": "/UH1RJJNDXAHGIFRO.jpg"
+                                    }
+                                },
+                                {
+                                    "id": "58549833",
+                                    "firstName": "Chardonnay",
+                                    "lastName": "Phelan",
+                                    "gender": "female",
+                                    "photo": {
+                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                        "suffix": "/58549833-TLK5SCYBZ54O3BNN.jpg"
+                                    }
+                                },
+                                {
+                                    "id": "146807480",
+                                    "firstName": "Andrew",
+                                    "lastName": "Badachhape",
+                                    "gender": "male",
+                                    "photo": {
+                                        "prefix": "https://igx.4sqi.net/img/user/",
+                                        "suffix": "/146807480-GIUQTYSYI3WM3IPH.jpg"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "summary": "9 Likes"
+                },
+                "dislike": false,
+                "ok": false,
+                "rating": 7.7,
+                "ratingColor": "C5DE35",
+                "ratingSignals": 15,
+                "allowMenuUrlEdit": true,
+                "beenHere": {
+                    "count": 0,
+                    "unconfirmedCount": 0,
+                    "marked": false,
+                    "lastCheckinExpiredAt": 0
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "photos": {
+                    "count": 11,
+                    "groups": [
+                        {
+                            "type": "venue",
+                            "name": "Venue photos",
+                            "count": 11,
+                            "items": [
+                                {
+                                    "id": "5a5a56e1a0215b3ee3ac1e93",
+                                    "createdAt": 1515869921,
+                                    "source": {
+                                        "name": "Foursquare for iOS",
+                                        "url": "https://foursquare.com/download/#/iphone"
+                                    },
+                                    "prefix": "https://igx.4sqi.net/img/general/",
+                                    "suffix": "/149019659_sDb5RQ-n9SZbVa2OKi4yQrEnEYq2XzVGARXr-ErSlHY.jpg",
+                                    "width": 1439,
+                                    "height": 1920,
+                                    "user": {
+                                        "id": "149019659",
+                                        "firstName": "Wang",
+                                        "lastName": "Shu Han",
+                                        "gender": "female",
+                                        "photo": {
+                                            "prefix": "https://igx.4sqi.net/img/user/",
+                                            "suffix": "/149019659_75LpuT27_4qS9FOaw7d2Z8Hq9U4LYgAAAjcCFSL6eeJymzieRKmyMNsBgeh0top59gDKQRHAh.jpg"
+                                        }
+                                    },
+                                    "visibility": "public"
+                                },
+                                {
+                                    "id": "5a5a56ff270ee73507d08b5e",
+                                    "createdAt": 1515869951,
+                                    "source": {
+                                        "name": "Foursquare for iOS",
+                                        "url": "https://foursquare.com/download/#/iphone"
+                                    },
+                                    "prefix": "https://igx.4sqi.net/img/general/",
+                                    "suffix": "/149019659_yPZHAgpP2gEjfm4hntQuysZr8suhb-m8gSLJRl5VOM4.jpg",
+                                    "width": 1920,
+                                    "height": 1440,
+                                    "user": {
+                                        "id": "149019659",
+                                        "firstName": "Wang",
+                                        "lastName": "Shu Han",
+                                        "gender": "female",
+                                        "photo": {
+                                            "prefix": "https://igx.4sqi.net/img/user/",
+                                            "suffix": "/149019659_75LpuT27_4qS9FOaw7d2Z8Hq9U4LYgAAAjcCFSL6eeJymzieRKmyMNsBgeh0top59gDKQRHAh.jpg"
+                                        }
+                                    },
+                                    "visibility": "public"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "venuePage": {
+                    "id": "483427744"
+                },
+                "reasons": {
+                    "count": 0,
+                    "items": []
+                },
+                "description": "Offers Houston classic Sichuan cuisine known for their deep and rich flavours, especially the taste of Sichuan pepper rare in other regional cuisines.",
+                "page": {
+                    "user": {
+                        "id": "483427744",
+                        "firstName": "Spicy Girl",
+                        "gender": "none",
+                        "photo": {
+                            "prefix": "https://igx.4sqi.net/img/user/",
+                            "suffix": "/483427744_2UUrcZWu_4Pee_6Ys8rTyinY0odd8b12gN80mAh8QSo1sbv2sLGbPgDTzWQQpmfPQVniTE7HQ.png"
+                        },
+                        "type": "venuePage",
+                        "venue": {
+                            "id": "599d52765d891b017b6e035b"
+                        },
+                        "tips": {
+                            "count": 0
+                        },
+                        "lists": {
+                            "groups": [
+                                {
+                                    "type": "created",
+                                    "count": 2,
+                                    "items": []
+                                }
+                            ]
+                        },
+                        "homeCity": "Houston, TX",
+                        "bio": "",
+                        "contact": {}
+                    }
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "createdAt": 1503482486,
+                "tips": {
+                    "count": 5,
+                    "groups": [
+                        {
+                            "type": "others",
+                            "name": "All tips",
+                            "count": 5,
+                            "items": [
+                                {
+                                    "id": "5b1a8824e4c459002c5a01f2",
+                                    "createdAt": 1528465444,
+                                    "text": "Everything I've had so far has been awesome!",
+                                    "type": "user",
+                                    "canonicalUrl": "https://foursquare.com/item/5b1a8824e4c459002c5a01f2",
+                                    "likes": {
+                                        "count": 0,
+                                        "groups": []
+                                    },
+                                    "logView": true,
+                                    "agreeCount": 0,
+                                    "disagreeCount": 0,
+                                    "todo": {
+                                        "count": 0
+                                    },
+                                    "user": {
+                                        "id": "38374970",
+                                        "firstName": "Scott",
+                                        "lastName": "Fisher",
+                                        "gender": "male",
+                                        "photo": {
+                                            "prefix": "https://igx.4sqi.net/img/user/",
+                                            "suffix": "/UH1RJJNDXAHGIFRO.jpg"
+                                        }
+                                    },
+                                    "authorInteractionType": "liked"
+                                },
+                                {
+                                    "id": "5af48babdec1d6002c8eefc0",
+                                    "createdAt": 1525975979,
+                                    "text": "Ordered the “Basil Chicken”.It was good but I don’t think I would get it again. Definitely want to give more dishes a try though — my coworker recommends the “spicy chicken cube”.",
+                                    "type": "user",
+                                    "canonicalUrl": "https://foursquare.com/item/5af48babdec1d6002c8eefc0",
+                                    "photo": {
+                                        "id": "5af48bae0457b7003995ee60",
+                                        "createdAt": 1525975982,
+                                        "source": {
+                                            "name": "Foursquare for iOS",
+                                            "url": "https://foursquare.com/download/#/iphone"
+                                        },
+                                        "prefix": "https://igx.4sqi.net/img/general/",
+                                        "suffix": "/58549833_w_BIlqP3vlKkJFLRwuQzXzDlBah64zZk1FwXWDhDhmA.jpg",
+                                        "width": 1920,
+                                        "height": 1440,
+                                        "visibility": "public"
+                                    },
+                                    "photourl": "https://igx.4sqi.net/img/general/original/58549833_w_BIlqP3vlKkJFLRwuQzXzDlBah64zZk1FwXWDhDhmA.jpg",
+                                    "likes": {
+                                        "count": 0,
+                                        "groups": []
+                                    },
+                                    "logView": true,
+                                    "agreeCount": 0,
+                                    "disagreeCount": 0,
+                                    "todo": {
+                                        "count": 0
+                                    },
+                                    "user": {
+                                        "id": "58549833",
+                                        "firstName": "Chardonnay",
+                                        "lastName": "Phelan",
+                                        "gender": "female",
+                                        "photo": {
+                                            "prefix": "https://igx.4sqi.net/img/user/",
+                                            "suffix": "/58549833-TLK5SCYBZ54O3BNN.jpg"
+                                        }
+                                    },
+                                    "authorInteractionType": "liked"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "shortUrl": "http://4sq.com/2wxb8x7",
+                "timeZone": "America/Chicago",
+                "listed": {
+                    "count": 2,
+                    "groups": [
+                        {
+                            "type": "others",
+                            "name": "Lists from other people",
+                            "count": 2,
+                            "items": [
+                                {
+                                    "id": "5979d0e48173cb3b194a9532",
+                                    "name": "Rice! Houston!",
+                                    "description": "",
+                                    "type": "others",
+                                    "user": {
+                                        "id": "12873529",
+                                        "firstName": "Yongyi",
+                                        "lastName": "Huang",
+                                        "gender": "female",
+                                        "photo": {
+                                            "prefix": "https://igx.4sqi.net/img/user/",
+                                            "suffix": "/12873529-YMP4XGRXZ05LEBKF.jpg"
+                                        }
+                                    },
+                                    "editable": false,
+                                    "public": true,
+                                    "collaborative": false,
+                                    "url": "/yongyihuang/list/rice-houston",
+                                    "canonicalUrl": "https://foursquare.com/yongyihuang/list/rice-houston",
+                                    "createdAt": 1501155556,
+                                    "updatedAt": 1521302589,
+                                    "photo": {
+                                        "id": "4dd54dd9fd28d0898e379f01",
+                                        "createdAt": 1305824729,
+                                        "prefix": "https://igx.4sqi.net/img/general/",
+                                        "suffix": "/CKYAYAHWZXTYB3XYP3EVHQJ35F0W0CVZ05BWN3X3OBO3PVPE.jpg",
+                                        "width": 720,
+                                        "height": 540,
+                                        "user": {
+                                            "id": "8679543",
+                                            "firstName": "Eva",
+                                            "lastName": "Tittel",
+                                            "gender": "female",
+                                            "photo": {
+                                                "prefix": "https://igx.4sqi.net/img/user/",
+                                                "suffix": "/13OLFJYTBTBUK2EG.jpg"
+                                            }
+                                        },
+                                        "visibility": "public"
+                                    },
+                                    "followers": {
+                                        "count": 0
+                                    },
+                                    "listItems": {
+                                        "count": 12,
+                                        "items": [
+                                            {
+                                                "id": "v599d52765d891b017b6e035b",
+                                                "createdAt": 1521301439
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": "5a91fffcfc9e9473b85e546f",
+                                    "name": "Restaurants I want to try",
+                                    "description": "",
+                                    "type": "others",
+                                    "user": {
+                                        "id": "477314265",
+                                        "firstName": "",
+                                        "gender": "none",
+                                        "photo": {
+                                            "prefix": "https://igx.4sqi.net/img/user/",
+                                            "suffix": "/blank_boy.png",
+                                            "default": true
+                                        }
+                                    },
+                                    "editable": false,
+                                    "public": true,
+                                    "collaborative": false,
+                                    "url": "/user/477314265/list/restaurants-i-want-to-try",
+                                    "canonicalUrl": "https://foursquare.com/user/477314265/list/restaurants-i-want-to-try",
+                                    "createdAt": 1519517692,
+                                    "updatedAt": 1519517849,
+                                    "photo": {
+                                        "id": "5a78810b2aff315fa8eeaf1a",
+                                        "createdAt": 1517846795,
+                                        "prefix": "https://igx.4sqi.net/img/general/",
+                                        "suffix": "/38064887_YoLtOhWhweQbHRVkqwMV-M2alKAhhJF2EswJtyk2Wpc.jpg",
+                                        "width": 1920,
+                                        "height": 1440,
+                                        "user": {
+                                            "id": "38064887",
+                                            "firstName": "Liz Hdz",
+                                            "gender": "female",
+                                            "photo": {
+                                                "prefix": "https://igx.4sqi.net/img/user/",
+                                                "suffix": "/38064887-1MDIYHP0ER2U31XE.jpg"
+                                            }
+                                        },
+                                        "visibility": "public"
+                                    },
+                                    "followers": {
+                                        "count": 0
+                                    },
+                                    "listItems": {
+                                        "count": 3,
+                                        "items": [
+                                            {
+                                                "id": "v599d52765d891b017b6e035b",
+                                                "createdAt": 1519517849
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "hours": {
+                    "status": "Closed until 11:00 AM tomorrow",
+                    "richStatus": {
+                        "entities": [],
+                        "text": "Closed until 11:00 AM tomorrow"
+                    },
+                    "isOpen": false,
+                    "isLocalHoliday": true,
+                    "localHolidayName": "Independence Day",
+                    "dayData": [],
+                    "timeframes": [
+                        {
+                            "days": "Mon–Thu, Sun",
+                            "includesToday": true,
+                            "open": [
+                                {
+                                    "renderedTime": "11:00 AM–10:00 PM"
+                                }
+                            ],
+                            "segments": []
+                        },
+                        {
+                            "days": "Fri–Sat",
+                            "open": [
+                                {
+                                    "renderedTime": "11:00 AM–11:00 PM"
+                                }
+                            ],
+                            "segments": []
+                        }
+                    ]
+                },
+                "pageUpdates": {
+                    "count": 0,
+                    "items": []
+                },
+                "inbox": {
+                    "count": 0,
+                    "items": []
+                },
+                "venueChains": [],
+                "attributes": {
+                    "groups": [
+                        {
+                            "type": "price",
+                            "name": "Price",
+                            "summary": "$$",
+                            "count": 1,
+                            "items": [
+                                {
+                                    "displayName": "Price",
+                                    "displayValue": "$$",
+                                    "priceTier": 2
+                                }
+                            ]
+                        },
+                        {
+                            "type": "reservations",
+                            "name": "Reservations",
+                            "summary": "Reservations",
+                            "count": 3,
+                            "items": [
+                                {
+                                    "displayName": "Reservations",
+                                    "displayValue": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "payments",
+                            "name": "Credit Cards",
+                            "summary": "Credit Cards",
+                            "count": 7,
+                            "items": [
+                                {
+                                    "displayName": "Credit Cards",
+                                    "displayValue": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "outdoorSeating",
+                            "name": "Outdoor Seating",
+                            "count": 1,
+                            "items": [
+                                {
+                                    "displayName": "Outdoor Seating",
+                                    "displayValue": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "serves",
+                            "name": "Menus",
+                            "summary": "Lunch & Dinner",
+                            "count": 8,
+                            "items": [
+                                {
+                                    "displayName": "Lunch",
+                                    "displayValue": "Lunch"
+                                },
+                                {
+                                    "displayName": "Dinner",
+                                    "displayValue": "Dinner"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "diningOptions",
+                            "name": "Dining Options",
+                            "summary": "Delivery",
+                            "count": 5,
+                            "items": [
+                                {
+                                    "displayName": "Delivery",
+                                    "displayValue": "Delivery"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "bestPhoto": {
+                    "id": "5a5a56e1a0215b3ee3ac1e93",
+                    "createdAt": 1515869921,
+                    "source": {
+                        "name": "Foursquare for iOS",
+                        "url": "https://foursquare.com/download/#/iphone"
+                    },
+                    "prefix": "https://igx.4sqi.net/img/general/",
+                    "suffix": "/149019659_sDb5RQ-n9SZbVa2OKi4yQrEnEYq2XzVGARXr-ErSlHY.jpg",
+                    "width": 1439,
+                    "height": 1920,
+                    "visibility": "public"
+                },
+                "colors": {
+                    "highlightColor": {
+                        "photoId": "5a5a56e1a0215b3ee3ac1e93",
+                        "value": -1525680
+                    },
+                    "highlightTextColor": {
+                        "photoId": "5a5a56e1a0215b3ee3ac1e93",
+                        "value": -16777216
+                    },
+                    "algoVersion": 3
+                }
+            }
+        }
+    }
+    return test;
+}
