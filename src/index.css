@@ -1,24 +1,75 @@
 html, body { 
   font-family: Arial, sans-serif;
   height: 100%; 
+  width: 100%;
   margin: 0; 
   padding: 0; 
 }
 
+.header, .search-and-list, input {
+  background-color: rgba(7, 7, 7, 0.822);
+}
+
+.burger {
+  display: inline-block;
+  right: 0;
+  top: 5px;
+  padding: 0.5em;
+  width: 5%
+}
+.burger svg {
+  width: 32px;
+  fill: red;
+}
+
+.title {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  color: #212121;
+  width: 92%;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+}
+
 #map { 
-  height: 100%; 
+  width: 70%;
+  position: relative;
+  left: 30%;
+}
+
+main, #root {
+  margin: 0;
+}
+
+#map, .search-and-list {
+  height: calc(100% - 79px);
 }
 
 .search-and-list{
-  position: absolute;
-    top: 50px;
+    display: inline-block;
+    position: absolute;
+    top: 75px;
     left: 0;
-    width: 50%;
+    width: 30%;
     max-width: 250px;
-    background-color: white;
-    opacity: 0.8;
+    /* background-color: white; */
+    /* opacity: 0.8; */
     z-index: 1;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
+    transform: translate(-250, 0);
+    -webkit-transform: translate(0, 0);
+    transition: transform 0.3s ease;
+  }
+  
+.hidden {
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-300px, 0);
+    transition: transform 0.3s ease;
 }
 
 .search-and-list ul {
@@ -37,9 +88,11 @@ input[type=text] {
   width: 100%;
   padding: 12px 20px;
   box-sizing: border-box;
+  color: white;
 }
 
 .search-and-list li {
+  color: white;
   list-style-type: none;
   margin: 0;
   margin-left: 5px;
@@ -66,4 +119,16 @@ input[type=text] {
   .search-box {
     font-size: 18px;
   }
+}
+
+@media screen and (min-width: 850px) {
+  #map {
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+}
+
+#map.full {
+  width: 100%;
+  left: 0;
 }

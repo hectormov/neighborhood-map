@@ -1,6 +1,7 @@
 import React from 'react';
 import GoogleMaps from './GoogleMaps'
 import Search from './Search';
+import Header from './Header'
 
 
 class App extends React.Component {
@@ -53,15 +54,13 @@ class App extends React.Component {
   render() {
     return (
         <div>
+          <Header />
           <GoogleMaps
             locations={this.state.locations}
             filteredLocations={this.state.filteredLocations}
             selectedLocation={this.state.selectedLocation}
             myKey={'AIzaSyBB3j35dbLFQFIqURXBo5X11-9b4MiLTe4'}
-            home={{
-              lat: 29.742292,
-              lng: -95.37718
-            }}
+            home={{ lat: 29.742292, lng: -95.37718 }}
           />
           <Search 
             locations={this.state.locations}

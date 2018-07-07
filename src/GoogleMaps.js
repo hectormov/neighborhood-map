@@ -63,7 +63,7 @@ class GoogleMaps extends Component {
         const infoWindow = this.state.infoWindow;
         if(marker.id === selectedLoc.id){
             this.populateInfoWindow(marker, infoWindow, this.state.myMap);
-            setTimeout(() => { infoWindow.close(); }, 2000);
+            // setTimeout(() => { infoWindow.close(); }, 2000);
             return window.google.maps.Animation.BOUNCE
         }
         return null
