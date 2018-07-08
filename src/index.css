@@ -1,5 +1,5 @@
 html, body { 
-  font-family: Arial, sans-serif;
+  font-family: sans-serif, Arial;
   height: 100%; 
   width: 100%;
   margin: 0; 
@@ -12,9 +12,9 @@ html, body {
 
 .burger {
   display: inline-block;
-  right: 0;
+  left: 5px;
   top: 5px;
-  padding: 0.5em;
+  padding-left: 15px;
   width: 5%
 }
 .burger svg {
@@ -28,8 +28,10 @@ html, body {
   margin-right: auto;
   display: inline-block;
   color: #212121;
-  width: 92%;
+  width: 90%;
   text-align: center;
+  
+  /* margin-top: 5px; */
 }
 
 h1 {
@@ -40,6 +42,7 @@ h1 {
   width: 70%;
   position: relative;
   left: 30%;
+  /* display: block; */
 }
 
 main, #root {
@@ -47,7 +50,7 @@ main, #root {
 }
 
 #map, .search-and-list {
-  height: calc(100% - 79px);
+  height: calc(100% - 36px);
 }
 
 .search-and-list{
@@ -57,8 +60,6 @@ main, #root {
     left: 0;
     width: 30%;
     max-width: 250px;
-    /* background-color: white; */
-    /* opacity: 0.8; */
     z-index: 1;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
     transform: translate(-250, 0);
@@ -86,7 +87,7 @@ main, #root {
 
 input[type=text] {
   width: 100%;
-  padding: 12px 20px;
+  padding: 12px 3px;
   box-sizing: border-box;
   color: white;
 }
@@ -98,6 +99,8 @@ input[type=text] {
   margin-left: 5px;
   padding: 0;
   font-size: 18px;
+  list-style-position:inside;
+  border-bottom: 1px solid white;
 }
 
 .search-and-list li:hover {
@@ -112,12 +115,27 @@ input[type=text] {
   padding-left: 20px;
 }
 
-@media screen and (max-width: 415px) {
-  .search-and-list li {
+@media screen and (max-width: 641px) {
+  .title {
+    position: absolute;
+  }
+  
+  h1, burger, .search-box {
     font-size: 16px;
   }
-  .search-box {
-    font-size: 18px;
+
+  .search-and-list {
+    top: 36px;
+    width: 22%;
+  }
+
+  .search-and-list li {
+    font-size: 14px;
+  }
+
+  #map {
+    left: 22%;
+    width: calc(100% - 22%);
   }
 }
 

@@ -29,7 +29,7 @@ class GoogleMaps extends Component {
         });
 
         const infoWindow = new window.google.maps.InfoWindow({
-            maxWidth: 330
+            maxWidth: 170
         });
         this.setState({infoWindow}, (() =>
             this.setState({myMap: mapWindow}, ( () => {
@@ -91,7 +91,7 @@ class GoogleMaps extends Component {
         content += vDetails.name ? `<h3>${vDetails.name}</h3>` : '';
         content += vDetails.categories[0].name ? `<h4>${vDetails.categories[0].name}</h4>` : '';
         content += vDetails.description ? `<h5>${vDetails.description}</h5>` : '';
-        content += vDetails.bestPhoto.prefix && vDetails.bestPhoto.suffix ? `<img src="${vDetails.bestPhoto.prefix}300x200${vDetails.bestPhoto.suffix}" alt="Restaurant Image" class="info-window-pic">` : '';
+        content += vDetails.bestPhoto.prefix && vDetails.bestPhoto.suffix ? `<img src="${vDetails.bestPhoto.prefix}150x90${vDetails.bestPhoto.suffix}" alt="Restaurant Image" class="info-window-pic">` : '';
         content += '<p><ul>'
         content += vDetails.contact.formattedPhone && vDetails.hours.status ? `<li>Phone: ${vDetails.contact.formattedPhone} ${vDetails.hours.status}</li>` : '';
         content += vDetails.rating && vDetails.likes.summary ? `<li class="rating">Rating: ${vDetails.rating} with ${vDetails.likes.summary}</li>` : '';
